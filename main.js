@@ -11,7 +11,7 @@ if (computerTurn === 1) {
 }
 
 /* SET USER'S CHOICE */
-let userChoise = prompt('Plese enter your choise: rock, paper or scissors:', '').trim().toLocaleLowerCase();
+//let userChoise = prompt('Plese enter your choise: rock, paper or scissors:', '').trim().toLocaleLowerCase();
 
 while (userChoise === null || userChoise === undefined || userChoise.trim() === '') {
     userChoise = prompt('Plese enter your choise: rock, paper or scissors:', '');

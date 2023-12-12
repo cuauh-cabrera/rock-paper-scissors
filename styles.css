@@ -1,0 +1,115 @@
+/* CSS Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li,
+ol li {
+    text-decoration: none;
+    list-style: none;
+}
+
+ul a,
+ol a {
+    text-decoration: none;
+    color: black;
+}
+
+/*HEADER*/
+header {
+    background-color: rgb(235, 97, 97);
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+header > h1 {
+    width: 90%;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+/*CONTAINER*/
+.container {
+    background-color: black;
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/*ICONS*/
+.img-container {
+    width: 95%;
+    height: 80vh;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-container >  figure {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icon {
+    border: solid transparent 3px;
+    border-radius: 50%;
+    width: 45%;
+    height: 20vh;
+}
+
+.img-container >  figure > figcaption {
+    width: 90%;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+/*FOOTER*/
+footer {
+    background-color: rgb(235, 97, 97);
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer>p {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    color: whitesmoke;
+}
+
+footer>p>a:visited {
+    color: whitesmoke;
+    text-decoration: none;
+}
