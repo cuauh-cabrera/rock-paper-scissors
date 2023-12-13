@@ -76,10 +76,10 @@ header > h1 {
 }
 
 .icon {
-    border: solid transparent 3px;
+    border: solid transparent 5px;
     border-radius: 50%;
-    width: 45%;
-    height: 20vh;
+    width: 35%;
+    height: auto;
 }
 
 .img-container >  figure > figcaption {
@@ -112,4 +112,41 @@ footer>p {
 footer>p>a:visited {
     color: whitesmoke;
     text-decoration: none;
+}
+
+/*1024px*/
+@media(min-width: 1024px) {
+    header>h1 {
+        font-size: 3rem;
+    }
+
+    .container {
+        justify-content: center;
+    }
+
+    .img-container {
+        flex-direction: row;
+        height: 60vh;
+    }
+
+    .img-container>figure {
+        width: 40%;
+        height: 55vh;
+        padding: 2rem;
+        gap: 0.7rem;
+    }
+
+    .icon {
+        width: 80%;
+    }
+
+    .icon:hover {
+        border: solid rgb(255, 255, 255) 3px;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .img-container >  figure > figcaption {
+        font-size: 1.5rem;
+    }
 }
