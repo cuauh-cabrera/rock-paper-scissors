@@ -1,6 +1,9 @@
+/*SETUP CHOICE VARIABLES*/
+let computerChoice;
+let userChoise;
+
 /*SET COMPUTER CHOICE*/
 let computerTurn = Math.floor((Math.random() * 3) + 1);
-let computerChoice;
 
 if (computerTurn === 1) {
     computerChoice = 'rock';
@@ -8,13 +11,6 @@ if (computerTurn === 1) {
     computerChoice = 'paper';
 } else if (computerTurn === 3) {
     computerChoice = 'scissors';
-}
-
-/* SET USER'S CHOICE */
-//let userChoise = prompt('Plese enter your choise: rock, paper or scissors:', '').trim().toLocaleLowerCase();
-
-while (userChoise === null || userChoise === undefined || userChoise.trim() === '') {
-    userChoise = prompt('Plese enter your choise: rock, paper or scissors:', '');
 }
 
 /*PLAY ROUND FUNCTION */
@@ -40,8 +36,88 @@ function playRound(computerChoice, userChoise) {
     return (roundResult);
 }
 
+/* SET USER'S CHOICE */
+const chooseRock = document.querySelector('#rock');
+const choosePaper = document.querySelector('#paper');
+const chooseScissors = document.querySelector('#scissors');
+
+chooseRock.addEventListener('click', () => {
+    let userChoise;
+    if (chooseRock) {
+        userChoise = 'rock';
+        console.log(userChoise);
+    }
+    //Set computer choice
+    let computerChoice;
+    let computerTurn = Math.floor((Math.random() * 3) + 1);
+
+    if (computerTurn === 1) {
+        computerChoice = 'rock';
+    } else if (computerTurn === 2) {
+        computerChoice = 'paper';
+    } else if (computerTurn === 3) {
+        computerChoice = 'scissors';
+    }
+
+    alert(playRound(computerChoice, userChoise));
+});
+
+choosePaper.addEventListener('click', () => {
+    if (choosePaper) {
+        userChoise = 'paper';
+        console.log(userChoise);
+    }
+
+        //Set computer choice
+        let computerChoice;
+        let computerTurn = Math.floor((Math.random() * 3) + 1);
+    
+        if (computerTurn === 1) {
+            computerChoice = 'rock';
+        } else if (computerTurn === 2) {
+            computerChoice = 'paper';
+        } else if (computerTurn === 3) {
+            computerChoice = 'scissors';
+        }
+    
+        alert(playRound(computerChoice, userChoise));
+
+})
+
+chooseScissors.addEventListener('click', () => {
+    if (chooseScissors) {
+        userChoise = 'scissors';
+        console.log(userChoise);
+    }
+
+        //Set computer choice
+        let computerChoice;
+        let computerTurn = Math.floor((Math.random() * 3) + 1);
+    
+        if (computerTurn === 1) {
+            computerChoice = 'rock';
+        } else if (computerTurn === 2) {
+            computerChoice = 'paper';
+        } else if (computerTurn === 3) {
+            computerChoice = 'scissors';
+        }
+    
+        alert(playRound(computerChoice, userChoise));
+
+})
+
+
+
+
+
+/*while (userChoise === null || userChoise === undefined || userChoise.trim() === '') {
+    userChoise = prompt('Plese enter your choise: rock, paper or scissors:', '');
+}*/
+
+
+
 /*SHOW RESULT */
-alert(playRound(computerChoice, userChoise));
+//alert(playRound(computerChoice, userChoise));
 
 
 
