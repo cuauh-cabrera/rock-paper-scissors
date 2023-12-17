@@ -2,39 +2,27 @@
 let computerChoice;
 let userChoise;
 
-/*SET COMPUTER CHOICE*/
-let computerTurn = Math.floor((Math.random() * 3) + 1);
-
-if (computerTurn === 1) {
-    computerChoice = 'rock';
-} else if (computerTurn === 2) {
-    computerChoice = 'paper';
-} else if (computerTurn === 3) {
-    computerChoice = 'scissors';
-}
-
 /*PLAY ROUND FUNCTION */
+let roundResult;
 function playRound(computerChoice, userChoise) {
-    let roundResult;
     if (computerChoice === 'rock' && userChoise === 'scissors') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice} - You loose :-(`;
+        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
     } else if (computerChoice === 'scissors' && userChoise === 'paper') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice} - You loose :-(`;
+        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
     } else if (computerChoice === 'paper' && userChoise === 'rock') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice} - You loose :-(`;
+        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
     } else if (userChoise === 'rock' && computerChoice === 'scissors') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice} - You Win! :-)`;
+        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
     } else if (userChoise === 'scissors' && computerChoice === 'paper') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice} - You Win! :-)`;
+        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
     } else if (userChoise === 'paper' && computerChoice === 'rock') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice} - You Win! :-)`;
+        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
     } else if (userChoise === computerChoice) {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice} - Tied game :/`;
-    } else {
-        alert('Error: Please check that you typed the correct option');
+        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
     }
     return (roundResult);
 }
+
 
 /* SET USER'S CHOICE */
 const chooseRock = document.querySelector('#rock');
@@ -59,7 +47,17 @@ chooseRock.addEventListener('click', () => {
         computerChoice = 'scissors';
     }
 
-    alert(playRound(computerChoice, userChoise));
+    //Get turn result
+    let result = playRound(computerChoice, userChoise);
+
+    const boardContainer = document.querySelector('#container');
+    const scoreBoard = document.querySelector('#scoreboard');
+    const scoreRow = document.createElement('p');
+    scoreRow.textContent = result;
+    scoreBoard.append(scoreRow);
+    boardContainer.append(scoreBoard);
+
+
 });
 
 choosePaper.addEventListener('click', () => {
@@ -68,19 +66,19 @@ choosePaper.addEventListener('click', () => {
         console.log(userChoise);
     }
 
-        //Set computer choice
-        let computerChoice;
-        let computerTurn = Math.floor((Math.random() * 3) + 1);
-    
-        if (computerTurn === 1) {
-            computerChoice = 'rock';
-        } else if (computerTurn === 2) {
-            computerChoice = 'paper';
-        } else if (computerTurn === 3) {
-            computerChoice = 'scissors';
-        }
-    
-        alert(playRound(computerChoice, userChoise));
+    //Set computer choice
+    let computerChoice;
+    let computerTurn = Math.floor((Math.random() * 3) + 1);
+
+    if (computerTurn === 1) {
+        computerChoice = 'rock';
+    } else if (computerTurn === 2) {
+        computerChoice = 'paper';
+    } else if (computerTurn === 3) {
+        computerChoice = 'scissors';
+    }
+
+    alert(playRound(computerChoice, userChoise));
 
 })
 
@@ -90,19 +88,19 @@ chooseScissors.addEventListener('click', () => {
         console.log(userChoise);
     }
 
-        //Set computer choice
-        let computerChoice;
-        let computerTurn = Math.floor((Math.random() * 3) + 1);
-    
-        if (computerTurn === 1) {
-            computerChoice = 'rock';
-        } else if (computerTurn === 2) {
-            computerChoice = 'paper';
-        } else if (computerTurn === 3) {
-            computerChoice = 'scissors';
-        }
-    
-        alert(playRound(computerChoice, userChoise));
+    //Set computer choice
+    let computerChoice;
+    let computerTurn = Math.floor((Math.random() * 3) + 1);
+
+    if (computerTurn === 1) {
+        computerChoice = 'rock';
+    } else if (computerTurn === 2) {
+        computerChoice = 'paper';
+    } else if (computerTurn === 3) {
+        computerChoice = 'scissors';
+    }
+
+    alert(playRound(computerChoice, userChoise));
 
 })
 
