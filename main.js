@@ -1,28 +1,36 @@
-/*SETUP CHOICE VARIABLES*/
+/*SETUP VARIABLES*/
 let computerChoice;
 let userChoise;
+let turnResult;
+let turnResultValue;
+let arrResult = [];
 
 /*PLAY ROUND FUNCTION */
-let roundResult;
-function playRound(computerChoice, userChoise) {
+function playTurn(computerChoice, userChoise) {
     if (computerChoice === 'rock' && userChoise === 'scissors') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
+        turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
+        turnResultValue = 0;
     } else if (computerChoice === 'scissors' && userChoise === 'paper') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
+        turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
+        turnResultValue = 0;
     } else if (computerChoice === 'paper' && userChoise === 'rock') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
+        turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
+        turnResultValue = 0;
     } else if (userChoise === 'rock' && computerChoice === 'scissors') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
+        turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
+        turnResultValue = 1;
     } else if (userChoise === 'scissors' && computerChoice === 'paper') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
+        turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
+        turnResultValue = 1;
     } else if (userChoise === 'paper' && computerChoice === 'rock') {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
+        turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
+        turnResultValue = 1;
     } else if (userChoise === computerChoice) {
-        roundResult = `You choose ${userChoise} and the computer ${computerChoice}`;
+        turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
+        turnResultValue = 2;
     }
-    return (roundResult);
+    return (turnResult);
 }
-
 
 /* SET USER'S CHOICE */
 const chooseRock = document.querySelector('#rock');
@@ -33,7 +41,6 @@ chooseRock.addEventListener('click', () => {
     let userChoise;
     if (chooseRock) {
         userChoise = 'rock';
-        console.log(userChoise);
     }
     //Set computer choice
     let computerChoice;
@@ -48,14 +55,21 @@ chooseRock.addEventListener('click', () => {
     }
 
     //Get turn result
-    let result = playRound(computerChoice, userChoise);
+    let result1 = playTurn(computerChoice, userChoise);
+    arrResult.push(turnResultValue);
 
     const boardContainer = document.querySelector('#container');
     const scoreBoard = document.querySelector('#scoreboard');
     const scoreRow = document.createElement('p');
-    scoreRow.textContent = result;
+    scoreRow.textContent = result1;
     scoreBoard.append(scoreRow);
     boardContainer.append(scoreBoard);
+
+    if (arrResult.length > 3) {
+        scoreBoard.remove();
+        alert('End Game');
+        location.reload();
+    }
 
 
 });
@@ -63,7 +77,6 @@ chooseRock.addEventListener('click', () => {
 choosePaper.addEventListener('click', () => {
     if (choosePaper) {
         userChoise = 'paper';
-        console.log(userChoise);
     }
 
     //Set computer choice
@@ -78,14 +91,24 @@ choosePaper.addEventListener('click', () => {
         computerChoice = 'scissors';
     }
 
-    alert(playRound(computerChoice, userChoise));
+    //Get turn result
+    let result2 = playTurn(computerChoice, userChoise);
+    arrResult.push(turnResultValue);
+
+    const boardContainer = document.querySelector('#container');
+    const scoreBoard = document.querySelector('#scoreboard');
+    const scoreRow = document.createElement('p');
+    scoreRow.textContent = result2;
+    scoreBoard.append(scoreRow);
+    boardContainer.append(scoreBoard);
+
+
 
 })
 
 chooseScissors.addEventListener('click', () => {
     if (chooseScissors) {
         userChoise = 'scissors';
-        console.log(userChoise);
     }
 
     //Set computer choice
@@ -100,12 +123,21 @@ chooseScissors.addEventListener('click', () => {
         computerChoice = 'scissors';
     }
 
-    alert(playRound(computerChoice, userChoise));
+    //Get turn result
+    let result3 = playTurn(computerChoice, userChoise);
+    arrResult.push(turnResultValue);
+
+    const boardContainer = document.querySelector('#container');
+    const scoreBoard = document.querySelector('#scoreboard');
+    const scoreRow = document.createElement('p');
+    scoreRow.textContent = result3;
+    scoreBoard.append(scoreRow);
+    boardContainer.append(scoreBoard);
 
 })
 
 
-
+console.log(arrResult)
 
 
 /*while (userChoise === null || userChoise === undefined || userChoise.trim() === '') {
