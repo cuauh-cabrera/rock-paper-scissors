@@ -2,35 +2,49 @@
 let computerChoice;
 let userChoise;
 let turnResult;
-let turnResultValue;
-let arrResult = [];
+let resultAlert;
+const turnCount =[];
+const userWins = [];
+const computerWins = [];
+const tiedGame = [];
+
+
 
 /*PLAY ROUND FUNCTION */
 function playTurn(computerChoice, userChoise) {
     if (computerChoice === 'rock' && userChoise === 'scissors') {
         turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
-        turnResultValue = 0;
+        computerWins.push(1);
+        turnCount.push(1);
     } else if (computerChoice === 'scissors' && userChoise === 'paper') {
         turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
-        turnResultValue = 0;
+        computerWins.push(1);
+        turnCount.push(1);
     } else if (computerChoice === 'paper' && userChoise === 'rock') {
         turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
-        turnResultValue = 0;
+        computerWins.push(1);
+        turnCount.push(1);
     } else if (userChoise === 'rock' && computerChoice === 'scissors') {
         turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
-        turnResultValue = 1;
+        userWins.push(1);
+        turnCount.push(1);
     } else if (userChoise === 'scissors' && computerChoice === 'paper') {
         turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
-        turnResultValue = 1;
+        userWins.push(1);
+        turnCount.push(1);
     } else if (userChoise === 'paper' && computerChoice === 'rock') {
         turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
-        turnResultValue = 1;
+        userWins.push(1);
+        turnCount.push(1);
     } else if (userChoise === computerChoice) {
         turnResult = `You chose ${userChoise} and the computer ${computerChoice}`;
-        turnResultValue = 2;
+        tiedGame.push(1);
+        turnCount.push(1);
     }
     return (turnResult);
 }
+
+
 
 /* SET USER'S CHOICE */
 const chooseRock = document.querySelector('#rock');
@@ -56,7 +70,6 @@ chooseRock.addEventListener('click', () => {
 
     //Get turn result
     let result1 = playTurn(computerChoice, userChoise);
-    arrResult.push(turnResultValue);
 
     const boardContainer = document.querySelector('#container');
     const scoreBoard = document.querySelector('#scoreboard');
@@ -65,12 +78,22 @@ chooseRock.addEventListener('click', () => {
     scoreBoard.append(scoreRow);
     boardContainer.append(scoreBoard);
 
-    if (arrResult.length > 3) {
-        scoreBoard.remove();
-        alert('End Game');
-        location.reload();
+    //Results message
+    if (userWins.length >= 2) {
+        resultAlert = 'You Win!'
+    } else if (computerWins.length >= 2) {
+        resultAlert = 'Computer Wins!'
+    }else if (tiedGame.length >= 2) {
+        resultAlert = 'Tied Game'
+    }else {
+        resultAlert = 'Tied Game'
     }
 
+    //End Game
+    if (turnCount.length == 3) {
+        alert(resultAlert);
+        location.reload();
+    }
 
 });
 
@@ -93,7 +116,6 @@ choosePaper.addEventListener('click', () => {
 
     //Get turn result
     let result2 = playTurn(computerChoice, userChoise);
-    arrResult.push(turnResultValue);
 
     const boardContainer = document.querySelector('#container');
     const scoreBoard = document.querySelector('#scoreboard');
@@ -101,6 +123,23 @@ choosePaper.addEventListener('click', () => {
     scoreRow.textContent = result2;
     scoreBoard.append(scoreRow);
     boardContainer.append(scoreBoard);
+
+        //Results message
+        if (userWins.length >= 2) {
+            resultAlert = 'You Win!'
+        } else if (computerWins.length >= 2) {
+            resultAlert = 'Computer Wins!'
+        }else if (tiedGame.length >= 2) {
+            resultAlert = 'Tied Game'
+        }else {
+            resultAlert = 'Tied Game'
+        }
+    
+        //End Game
+        if (turnCount.length == 3) {
+            alert(resultAlert);
+            location.reload();
+        }
 
 
 
@@ -125,7 +164,6 @@ chooseScissors.addEventListener('click', () => {
 
     //Get turn result
     let result3 = playTurn(computerChoice, userChoise);
-    arrResult.push(turnResultValue);
 
     const boardContainer = document.querySelector('#container');
     const scoreBoard = document.querySelector('#scoreboard');
@@ -134,22 +172,21 @@ chooseScissors.addEventListener('click', () => {
     scoreBoard.append(scoreRow);
     boardContainer.append(scoreBoard);
 
+        //Results message
+        if (userWins.length >= 2) {
+            resultAlert = 'You Win!'
+        } else if (computerWins.length >= 2) {
+            resultAlert = 'Computer Wins!'
+        }else if (tiedGame.length >= 2) {
+            resultAlert = 'Tied Game'
+        }else {
+            resultAlert = 'Tied Game'
+        }
+    
+        //End Game
+        if (turnCount.length == 3) {
+            alert(resultAlert);
+            location.reload();
+        }
+
 })
-
-
-console.log(arrResult)
-
-
-/*while (userChoise === null || userChoise === undefined || userChoise.trim() === '') {
-    userChoise = prompt('Plese enter your choise: rock, paper or scissors:', '');
-}*/
-
-
-
-/*SHOW RESULT */
-//alert(playRound(computerChoice, userChoise));
-
-
-
-
-
