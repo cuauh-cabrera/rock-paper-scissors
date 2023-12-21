@@ -26,21 +26,27 @@ ol a {
     color: black;
 }
 
+main {
+    width: 100%;
+    height: 90vh;
+}
+
 /*HEADER*/
 header {
     background-color: rgb(235, 97, 97);
     width: 100%;
-    height: auto;
+    height: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    top: 0;
 }
 
 header > h1 {
     width: 90%;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: white;
 }
@@ -48,18 +54,19 @@ header > h1 {
 /*CONTAINER*/
 .container {
     background-color: black;
+    margin-top: 0;
     width: 100%;
     height: 90vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items:unset;
 }
 
 /*ICONS*/
 .img-container {
     width: 95%;
-    height: auto;
+    height: fit-content;
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
@@ -68,8 +75,7 @@ header > h1 {
 }
 
 .img-container >  figure {
-    width: 100%;
-    height: auto;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -79,7 +85,7 @@ header > h1 {
 .icon {
     border: solid transparent 5px;
     border-radius: 50%;
-    width: 35%;
+    width: 50%;
     height: auto;
 }
 
@@ -93,26 +99,26 @@ header > h1 {
 }
 
 .scoreboard {
-    border: dotted yellowgreen 1px;
-    margin-top: 1rem;
+    margin-top: -1rem;
     width: 100%;
-    height: auto;
-    padding: 1rem;
+    height: min-content;
+    padding:0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    gap: 0.7rem;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin-bottom:0;
 }
 
 .scoreboard>p {
-    border: solid white 3px;
+    border: solid white 2px;
     border-radius: 1rem;
-    width: 80%;
+    width: 90%;
     padding: 0.5rem;
     color: white;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -120,7 +126,8 @@ header > h1 {
 footer {
     background-color: rgb(235, 97, 97);
     width: 100%;
-    height: auto;
+    height: 5vh;
+    margin-top:0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,32 +148,38 @@ footer>p>a:visited {
 
 /*1024px*/
 @media(min-width: 1024px) {
+    header {
+        height: 5vh;
+    }
+
     header>h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .container {
-        border: solid white 2px;
+        height:90vh;
         justify-content: center;
         flex-wrap: wrap;
     }
 
     .img-container {
-        border: solid blue 1px;
+        margin-top: 2rem;
         flex-direction: row;
-        width: 100%;
-        height: 60vh;
+        align-items: flex-start;
+        width: 90%;
+        height: fit-content;
+        padding: 1rem;
     }
 
     .img-container>figure {
         width: 40%;
-        height: 55vh;
+        height: auto;
         padding: 2rem;
         gap: 0.9rem;
     }
 
     .icon {
-        width: 80%;
+        width: 50%;
     }
 
     .icon:hover {
@@ -180,20 +193,19 @@ footer>p>a:visited {
     }
 
     .scoreboard {
-        border: dotted yellowgreen 1px;
-        margin-top: 1rem;
+        margin-top: -8rem;
+        margin-bottom: 1rem;
         width: 100%;
-        height: 50vh;
+        height: auto;
         padding: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
         gap: 0;
     }
 
     .scoreboard>p {
-        border: solid white 3px;
         border-radius: 1rem;
         width: 80%;
         padding: 1rem;
@@ -201,5 +213,10 @@ footer>p>a:visited {
         text-align: center;
         font-size: 2rem;
         font-weight: 600;
+    }
+
+    footer {
+        margin-top: 0rem;
+        height: 5vh;
     }
 }
