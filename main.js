@@ -46,12 +46,13 @@ function playTurn(computerChoice, userChoise) {
 
 
 
-/* SET USER'S CHOICE */
+// Set user's choice
 const chooseRock = document.querySelector('#rock');
 const choosePaper = document.querySelector('#paper');
 const chooseScissors = document.querySelector('#scissors');
 
-chooseRock.addEventListener('click', () => {
+/*GAME INNING FUNCTION*/
+let gameInning = function () {
     let userChoise;
     if (chooseRock) {
         userChoise = 'rock';
@@ -67,18 +68,15 @@ chooseRock.addEventListener('click', () => {
     } else if (computerTurn === 3) {
         computerChoice = 'scissors';
     }
-
-    //Get turn result
+    //get turn result
     let result1 = playTurn(computerChoice, userChoise);
-
     const boardContainer = document.querySelector('#container');
     const scoreBoard = document.querySelector('#scoreboard');
     const scoreRow = document.createElement('p');
     scoreRow.textContent = result1;
     scoreBoard.append(scoreRow);
     boardContainer.append(scoreBoard);
-
-    //Results message
+    //results message
     if (userWins.length >= 2) {
         resultAlert = 'You Win!'
     } else if (computerWins.length >= 2) {
@@ -88,105 +86,24 @@ chooseRock.addEventListener('click', () => {
     }else {
         resultAlert = 'Tied Game'
     }
-
-    //End Game
+    //end Game
     if (turnCount.length == 3) {
         alert(resultAlert);
         location.reload();
     }
+}
 
+//Rock event listener
+chooseRock.addEventListener('click', () => {
+    gameInning();
 });
 
+//Paper event listener
 choosePaper.addEventListener('click', () => {
-    if (choosePaper) {
-        userChoise = 'paper';
-    }
-
-    //Set computer choice
-    let computerChoice;
-    let computerTurn = Math.floor((Math.random() * 3) + 1);
-
-    if (computerTurn === 1) {
-        computerChoice = 'rock';
-    } else if (computerTurn === 2) {
-        computerChoice = 'paper';
-    } else if (computerTurn === 3) {
-        computerChoice = 'scissors';
-    }
-
-    //Get turn result
-    let result2 = playTurn(computerChoice, userChoise);
-
-    const boardContainer = document.querySelector('#container');
-    const scoreBoard = document.querySelector('#scoreboard');
-    const scoreRow = document.createElement('p');
-    scoreRow.textContent = result2;
-    scoreBoard.append(scoreRow);
-    boardContainer.append(scoreBoard);
-
-        //Results message
-        if (userWins.length >= 2) {
-            resultAlert = 'You Win!'
-        } else if (computerWins.length >= 2) {
-            resultAlert = 'Computer Wins!'
-        }else if (tiedGame.length >= 2) {
-            resultAlert = 'Tied Game'
-        }else {
-            resultAlert = 'Tied Game'
-        }
-    
-        //End Game
-        if (turnCount.length == 3) {
-            alert(resultAlert);
-            location.reload();
-        }
-
-
-
+    gameInning();
 })
 
+//Scissors event listener
 chooseScissors.addEventListener('click', () => {
-    if (chooseScissors) {
-        userChoise = 'scissors';
-    }
-
-    //Set computer choice
-    let computerChoice;
-    let computerTurn = Math.floor((Math.random() * 3) + 1);
-
-    if (computerTurn === 1) {
-        computerChoice = 'rock';
-    } else if (computerTurn === 2) {
-        computerChoice = 'paper';
-    } else if (computerTurn === 3) {
-        computerChoice = 'scissors';
-    }
-
-    //Get turn result
-    let result3 = playTurn(computerChoice, userChoise);
-
-    const boardContainer = document.querySelector('#container');
-    const scoreBoard = document.querySelector('#scoreboard');
-    const scoreRow = document.createElement('p');
-    scoreRow.textContent = result3;
-    scoreBoard.append(scoreRow);
-    boardContainer.append(scoreBoard);
-
-        //Results message
-        if (userWins.length >= 2) {
-            resultAlert = 'You Win!'
-        } else if (computerWins.length >= 2) {
-            resultAlert = 'Computer Wins!'
-        }else if (tiedGame.length >= 2) {
-            resultAlert = 'Tied Game'
-        }else {
-            resultAlert = 'Tied Game'
-        }
-    
-        //End Game
-        if (turnCount.length == 3) {
-            alert(resultAlert);
-            location.reload();
-        }
-
+    gameInning();
 })
