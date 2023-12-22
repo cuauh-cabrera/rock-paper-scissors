@@ -1,14 +1,12 @@
-/*SETUP VARIABLES*/
+/*GLOBAL VARIABLES*/
 let computerChoice;
 let userChoise;
 let turnResult;
 let resultAlert;
-const turnCount =[];
+const turnCount = [];
 const userWins = [];
 const computerWins = [];
 const tiedGame = [];
-
-
 
 /*PLAY ROUND FUNCTION */
 function playTurn(computerChoice, userChoise) {
@@ -44,8 +42,6 @@ function playTurn(computerChoice, userChoise) {
     return (turnResult);
 }
 
-
-
 // Set user's choice
 const chooseRock = document.querySelector('#rock');
 const choosePaper = document.querySelector('#paper');
@@ -53,12 +49,7 @@ const chooseScissors = document.querySelector('#scissors');
 
 /*GAME INNING FUNCTION*/
 let gameInning = function () {
-    let userChoise;
-    if (chooseRock) {
-        userChoise = 'rock';
-    }
     //Set computer choice
-    let computerChoice;
     let computerTurn = Math.floor((Math.random() * 3) + 1);
 
     if (computerTurn === 1) {
@@ -81,9 +72,9 @@ let gameInning = function () {
         resultAlert = 'You Win!'
     } else if (computerWins.length >= 2) {
         resultAlert = 'Computer Wins!'
-    }else if (tiedGame.length >= 2) {
+    } else if (tiedGame.length >= 2) {
         resultAlert = 'Tied Game'
-    }else {
+    } else {
         resultAlert = 'Tied Game'
     }
     //end Game
@@ -91,19 +82,24 @@ let gameInning = function () {
         alert(resultAlert);
         location.reload();
     }
+
 }
 
 //Rock event listener
 chooseRock.addEventListener('click', () => {
+    userChoise = 'rock';
     gameInning();
 });
 
 //Paper event listener
 choosePaper.addEventListener('click', () => {
+    userChoise = 'paper';
     gameInning();
 })
 
 //Scissors event listener
 chooseScissors.addEventListener('click', () => {
+    userChoise = 'scissors';
     gameInning();
 })
+
